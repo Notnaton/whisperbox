@@ -147,7 +147,7 @@ def get_system_audio_devices():
                 
                 if platform == "mac" and "blackhole" in device_name:
                     is_system_device = True
-                elif platform == "linux" and any(name in device_name for name in ["pulse", "monitor", "loopback", "bluez"]):
+                elif platform == "linux" and any(name in device_name):
                     is_system_device = True
                 elif platform == "windows" and any(name in device_name for name in ["stereo mix", "wave out", "cable", "virtual"]):
                     is_system_device = True
