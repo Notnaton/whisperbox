@@ -68,7 +68,7 @@ def _get_linux_loopback_device_index():
         for i in range(p.get_device_count()):
             device_info = p.get_device_info_by_index(i)
             device_name = str(device_info.get("name", "")).lower()
-            if any(name in device_name for name in ["pulse", "monitor", "loopback", "bluez", "monitor"]):
+            if any(name in device_name for name in ["pulse", "monitor", "loopback", "bluez"]):
                 return i
         return None
     finally:
@@ -146,7 +146,7 @@ def get_system_audio_devices():
                 
                 if platform == "mac" and "blackhole" in device_name:
                     is_system_device = True
-                elif platform == "linux" and any(name in device_name for name in ["pulse", "monitor", "loopback"]):
+                elif platform == "linux" and any(name in device_name for name in ["pulse", "monitor", "loopback", "bluez"]):
                     is_system_device = True
                 elif platform == "windows" and any(name in device_name for name in ["stereo mix", "wave out", "cable", "virtual"]):
                     is_system_device = True
