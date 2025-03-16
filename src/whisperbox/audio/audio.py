@@ -53,6 +53,7 @@ def _get_blackhole_device_index():
         for i in range(p.get_device_count()):
             device_info = p.get_device_info_by_index(i)
             device_name = str(device_info.get("name", "")).lower()
+            print(device_name)
             if "blackhole" in device_name:
                 log.debug("Found BlackHole audio device")
                 return i
